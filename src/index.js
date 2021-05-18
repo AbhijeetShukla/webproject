@@ -4,6 +4,7 @@ const path = require("path")
 const login = require("../mongodb/mongoose")
 const bodyparser= require("body-parser")
 const staticpath = path.join(__dirname,"../public")
+const port = process.env.PORT || 8000;
 app.use(express.urlencoded({extended:false}))
 app.set("view engine", "hbs");
 app.use(express.static(staticpath))
@@ -22,6 +23,6 @@ myData.save().then(()=>{
 })
 
 
-app.listen(3000,()=>{
-  console.log("server started at port 3000")
+app.listen(port,()=>{
+  console.log(`server started at port ${port}`)
 })
